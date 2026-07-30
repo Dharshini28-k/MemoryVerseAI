@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>AI Smart Search</title>
+
+<link rel="stylesheet"
+href="{{ url_for('static', filename='css/style.css') }}">
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap"
+rel="stylesheet">
+
+<link rel="stylesheet"
+href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
+</head>
+
+<body>
+
+<nav>
+
+<div class="logo">
+🧠 <span>MemoryVerse AI</span>
+</div>
+
+<ul>
+<li><a href="/">Home</a></li>
+<li><a href="/upload">Upload</a></li>
+<li><a href="/dashboard">Dashboard</a></li>
+<li><a href="/search">Search</a></li>
+<li><a href="/timeline">Timeline</a></li>
+<li><a href="/relationships">Knowledge Graph</a></li>
+</ul>
+
+</nav>
+
+<div class="container">
+
+<div class="hero">
+
+<h1>🔍 AI Smart Search</h1>
+
+<p class="subtitle">
+
+Search documents by filename, category or skills.
+
+Examples:
+<b>Python</b>,
+<b>Certificate</b>,
+<b>Project</b>,
+<b>Internship</b>
+
+</p>
+
+<form method="POST">
+
+<div class="search-box">
+
+<input
+type="text"
+name="query"
+placeholder="Search anything..."
+required>
+
+<button type="submit">
+
+<i class="fa-solid fa-magnifying-glass"></i>
+
+Search
+
+</button>
+
+</div>
+
+</form>
+
+</div>
+
+<br>
+
+{% if results %}
+
+{% for file in results %}
+
+<div class="card">
+
+<h2>{{ file.name }}</h2>
+
+<hr style="margin:15px 0;border-color:rgba(255,255,255,.1);">
+
+<p>
+
+<b>📂 Category:</b>
+
+{{ file.category }}
+
+</p>
+
+<br>
+
+<p>
+
+<b>🧠 Skills:</b>
+
+{{ ", ".join(file.skills) }}
+
+</p>
+
+</div>
+
+{% endfor %}
+
+{% else %}
+
+<div class="card" style="text-align:center;">
+
+<i class="fa-solid fa-file-circle-question"
+style="font-size:70px;color:#38bdf8;"></i>
+
+<br><br>
+
+<h2>No Results Yet</h2>
+
+<p>Search results will appear here.</p>
+
+</div>
+
+{% endif %}
+
+</div>
+
+</body>
+
+</html>

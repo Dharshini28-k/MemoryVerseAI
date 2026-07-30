@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Digital Journey Timeline</title>
+
+<link rel="stylesheet"
+href="{{ url_for('static', filename='css/style.css') }}">
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap"
+rel="stylesheet">
+
+<link rel="stylesheet"
+href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
+</head>
+
+<body>
+
+<nav>
+
+<div class="logo">
+🧠 <span>MemoryVerse AI</span>
+</div>
+
+<ul>
+<li><a href="/">Home</a></li>
+<li><a href="/upload">Upload</a></li>
+<li><a href="/dashboard">Dashboard</a></li>
+<li><a href="/search">Search</a></li>
+<li><a href="/timeline">Timeline</a></li>
+<li><a href="/relationships">Knowledge Graph</a></li>
+</ul>
+
+</nav>
+
+<div class="container">
+
+<div class="hero">
+
+<h1>📅 Digital Journey Timeline</h1>
+
+<p class="subtitle">
+
+Track your academic and professional growth through an interactive timeline.
+
+</p>
+
+</div>
+
+<div class="timeline">
+
+{% for file in files %}
+
+<div class="timeline-item">
+
+<div class="timeline-content">
+
+<h2>
+<i class="fa-solid fa-file-lines"></i>
+{{ file.category }}
+</h2>
+
+<p><strong>📄 Document:</strong> {{ file.name }}</p>
+
+<p><strong>🧠 Skills:</strong> {{ ", ".join(file.skills) }}</p>
+
+</div>
+
+</div>
+
+{% endfor %}
+
+</div>
+
+</div>
+
+</body>
+
+</html>

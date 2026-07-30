@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Dashboard</title>
+
+<link rel="stylesheet"
+href="{{ url_for('static', filename='css/style.css') }}">
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap"
+rel="stylesheet">
+
+<link rel="stylesheet"
+href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
+</head>
+
+<body>
+
+<nav>
+
+<div class="logo">
+🧠 <span>MemoryVerse AI</span>
+</div>
+
+<ul>
+
+<li><a href="/">Home</a></li>
+<li><a href="/upload">Upload</a></li>
+<li><a href="/dashboard">Dashboard</a></li>
+<li><a href="/search">Search</a></li>
+<li><a href="/timeline">Timeline</a></li>
+<li><a href="/relationships">Knowledge Graph</a></li>
+
+</ul>
+
+</nav>
+
+<div class="container">
+
+<h1>📊 AI Dashboard</h1>
+
+<p class="subtitle">
+
+Monitor, organize and explore your digital identity.
+
+</p>
+
+<div class="stats">
+
+<div class="stat-card">
+<i class="fa-solid fa-folder-open fa-2x"></i>
+<h2>{{ stats.total }}</h2>
+<p>Total Documents</p>
+</div>
+
+<div class="stat-card">
+<i class="fa-solid fa-certificate fa-2x"></i>
+<h2>{{ stats.certificates }}</h2>
+<p>Certificates</p>
+</div>
+
+<div class="stat-card">
+<i class="fa-solid fa-diagram-project fa-2x"></i>
+<h2>{{ stats.projects }}</h2>
+<p>Projects</p>
+</div>
+
+<div class="stat-card">
+<i class="fa-solid fa-briefcase fa-2x"></i>
+<h2>{{ stats.internships }}</h2>
+<p>Internships</p>
+</div>
+
+</div>
+
+<div class="card">
+
+<h2 style="margin-bottom:20px;">📁 Uploaded Documents</h2>
+
+<table>
+
+<tr>
+
+<th>File Name</th>
+
+<th>Category</th>
+
+<th>Skills</th>
+
+</tr>
+
+{% for file in files %}
+
+<tr>
+
+<td>{{ file.name }}</td>
+
+<td>{{ file.category }}</td>
+
+<td>{{ ", ".join(file.skills) }}</td>
+
+</tr>
+
+{% endfor %}
+
+</table>
+
+</div>
+
+<br>
+
+<div style="text-align:center;">
+
+<a href="/upload">
+<button><i class="fa-solid fa-upload"></i> Upload</button>
+</a>
+
+<a href="/search">
+<button><i class="fa-solid fa-magnifying-glass"></i> Search</button>
+</a>
+
+<a href="/timeline">
+<button><i class="fa-solid fa-clock"></i> Timeline</button>
+</a>
+
+<a href="/relationships">
+<button><i class="fa-solid fa-share-nodes"></i> Knowledge Graph</button>
+</a>
+
+</div>
+
+</div>
+
+</body>
+</html>

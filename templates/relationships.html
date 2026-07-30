@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Knowledge Graph</title>
+
+<link rel="stylesheet"
+href="{{ url_for('static', filename='css/style.css') }}">
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap"
+rel="stylesheet">
+
+<link rel="stylesheet"
+href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
+</head>
+
+<body>
+
+<nav>
+
+<div class="logo">
+🧠 <span>MemoryVerse AI</span>
+</div>
+
+<ul>
+
+<li><a href="/">Home</a></li>
+<li><a href="/upload">Upload</a></li>
+<li><a href="/dashboard">Dashboard</a></li>
+<li><a href="/search">Search</a></li>
+<li><a href="/timeline">Timeline</a></li>
+<li><a href="/relationships">Knowledge Graph</a></li>
+
+</ul>
+
+</nav>
+
+<div class="container">
+
+<div class="hero">
+
+<h1>🔗 Knowledge Graph</h1>
+
+<p class="subtitle">
+
+Discover intelligent relationships between your documents, skills and achievements.
+
+</p>
+
+</div>
+
+<div class="graph">
+
+{% for item in data %}
+
+<div class="graph-card">
+
+<div class="graph-icon">
+
+<i class="fa-solid fa-diagram-project"></i>
+
+</div>
+
+<h3>AI Relationship</h3>
+
+<p>{{ item }}</p>
+
+</div>
+
+{% endfor %}
+
+</div>
+
+</div>
+
+</body>
+
+</html>

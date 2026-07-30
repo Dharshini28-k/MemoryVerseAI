@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Upload Documents</title>
+
+<link rel="stylesheet"
+href="{{ url_for('static', filename='css/style.css') }}">
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap"
+rel="stylesheet">
+
+<link rel="stylesheet"
+href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
+</head>
+
+<body>
+
+<nav>
+
+<div class="logo">
+🧠 <span>MemoryVerse AI</span>
+</div>
+
+<ul>
+
+<li><a href="/">Home</a></li>
+<li><a href="/upload">Upload</a></li>
+<li><a href="/dashboard">Dashboard</a></li>
+<li><a href="/search">Search</a></li>
+<li><a href="/timeline">Timeline</a></li>
+<li><a href="/relationships">Knowledge Graph</a></li>
+
+</ul>
+
+</nav>
+
+<div class="container">
+
+<div class="hero">
+
+<h1>📂 Upload Documents</h1>
+
+<p class="subtitle">
+
+Upload your certificates, resumes, internship letters, project reports and academic documents.
+
+</p>
+
+<div class="upload-box">
+
+<i class="fa-solid fa-cloud-arrow-up upload-icon"></i>
+
+<h2>Choose a Document</h2>
+
+<br>
+
+<form action="/upload" method="POST" enctype="multipart/form-data">
+
+<input type="file" name="document" required>
+
+<br><br>
+
+<button type="submit">
+
+<i class="fa-solid fa-upload"></i>
+
+Upload Document
+
+</button>
+
+</form>
+
+</div>
+
+</div>
+
+</div>
+
+</body>
+
+</html>
